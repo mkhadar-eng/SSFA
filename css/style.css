@@ -517,8 +517,8 @@ body {
 .training { padding: 90px 0; }
 .training__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 150px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 220px;
   gap: 16px;
 }
 .training__item {
@@ -527,8 +527,8 @@ body {
   grid-column: span 1;
   grid-row: span 1;
 }
-.training__item--tall { grid-row: span 2; }
-.training__item--wide { grid-column: span 2; }
+.training__item--tall,
+.training__item--wide { grid-column: span 1; grid-row: span 1; }
 .training__item img { height: 100%; }
 .training__item figcaption {
   position: absolute;
@@ -961,8 +961,7 @@ body {
   .stat:nth-child(2)::after { display: none; }
   .stat:not(:last-child)::after { display: none; }
   .programs__grid { grid-template-columns: 1fr; }
-  .training__grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 130px; }
-  .training__item--wide { grid-column: span 2; }
+  .training__grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
   .festivals__past-grid { grid-template-columns: repeat(2, 1fr); }
   .gallery__grid { grid-template-columns: repeat(2, 1fr); }
   .why-us__grid { grid-template-columns: repeat(2, 1fr); }
