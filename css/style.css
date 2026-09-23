@@ -868,6 +868,10 @@ body {
   color: var(--paper);
   transition: background 0.15s ease, border-color 0.15s ease;
 }
+.social-links svg { width: 18px; height: 18px; fill: currentColor; }
+.social-links svg rect, .social-links svg circle { fill: none; stroke: currentColor; stroke-width: 2; }
+.social-links svg .social-icon__dot { fill: currentColor; stroke: none; }
+.social-links svg .social-icon__play { fill: var(--blue-deep); stroke: none; }
 .social-links a:hover { background: var(--red); border-color: var(--red); }
 .footer__bottom { text-align: center; padding: 22px 24px; font-size: 0.82rem; color: #93A2C0; }
 
