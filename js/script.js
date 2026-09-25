@@ -16,14 +16,24 @@ document.addEventListener('DOMContentLoaded', function () {
   function setupImagePlaceholders() {
     var images = document.querySelectorAll('.ph-img');
     images.forEach(function (img) {
+      var frame = img.closest('.img-frame');
+      if (frame) frame.classList.add('is-image-loading');
+
+      function markImageLoaded() {
+        if (frame) frame.classList.remove('is-image-loading');
+      }
+
+      img.addEventListener('load', markImageLoaded);
       img.addEventListener('error', function () {
-        var frame = img.closest('.img-frame');
         if (frame) frame.classList.add('img-frame--missing');
       });
       // Video poster images use the same pattern via a plain <img> check.
-      if (img.complete && img.naturalWidth === 0) {
-        var frame2 = img.closest('.img-frame');
-        if (frame2) frame2.classList.add('img-frame--missing');
+      if (img.complete) {
+        if (img.naturalWidth === 0) {
+          if (frame) frame.classList.add('img-frame--missing');
+        } else {
+          markImageLoaded();
+        }
       }
     });
   }

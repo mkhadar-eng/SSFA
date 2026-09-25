@@ -201,7 +201,10 @@ body {
   height: 100%;
   object-fit: cover;
   z-index: 1;
+  opacity: 1;
+  transition: opacity 0.2s ease;
 }
+.img-frame.is-image-loading .ph-img { opacity: 0.35; }
 .img-frame::after {
   content: attr(data-label);
   position: absolute;
@@ -671,6 +674,8 @@ body {
   cursor: pointer;
   padding: 0;
   position: relative;
+  background-image: none;
+  background-color: var(--mist);
 }
 .gallery__item::before {
   content: "";
@@ -849,6 +854,7 @@ body {
   grid-template-columns: 1.2fr 0.8fr;
   gap: 56px;
 }
+.contact__grid > * { min-width: 0; }
 .contact__form-wrap > p { color: var(--ink-soft); margin: 10px 0 26px; }
 
 .contact-form { display: grid; gap: 18px; }
@@ -966,6 +972,15 @@ body {
 
 /* ---------- 19. Mobile menu state ---------- */
 @media (max-width: 960px) {
+  body { padding-top: var(--header-height); }
+
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
   .hamburger { display: flex; }
 
   .main-nav {
